@@ -14,6 +14,7 @@
         <item>AUD</item>
         <item>NZD</item>
         <item>SGD</item>
+        <item>KRW</item>
     </string-array>
 
     <string-array name="country_list">
@@ -23,6 +24,7 @@
         <item>AUSTRALIA</item>
         <item>NEW ZEALAND</item>
         <item>SINGAPORE</item>
+        <item>KOREAN</item>
     </string-array>
 
 </resources>

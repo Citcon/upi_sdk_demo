@@ -12,7 +12,7 @@ android {
         minSdk 26
         targetSdk 31
         versionCode 1
-        versionName "1.1"
+        versionName "1.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -48,47 +48,33 @@ repositories {
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    //implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
-    //implementation 'android.arch.lifecycle:extensions:1.1.1'
 
     //implementation 'com.github.Citcon:upi_mobile_sdk_android:1.0.4'
-    //implementation 'com.github.zhuanglm:CUPay:1.0.1'
-    //implementation 'com.citcon.sdk:CUPay:3.0.1-alpha'
-    implementation 'com.braintreepayments.api:braintree:3.17.4'
-    implementation 'com.braintreepayments.api:three-d-secure:3.17.4'
+
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
-    //implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.4'
-    //implementation fileTree(include: ['*.aar'], dir: 'libs')
 
-    implementation 'com.android.volley:volley:1.2.1'
-    //implementation 'com.citcon.sdk:cpay-upi:1.0.2-alpha'
-    implementation(name:'citcon-upi-sdk-debug', ext:'aar')
-    //implementation(name:'sdk-release', ext:'aar')
-    implementation(name:'CUPay-sdk-debug', ext:'aar')
+    //implementation(name:'citcon-upi-sdk-debug', ext:'aar')
+
+    //implementation(name:'CUPay-sdk-debug', ext:'aar')
+
     //implementation(name:'CardForm-debug', ext:'aar')
-    implementation 'com.citcon.sdk:CardForm:1.0.1'
-    implementation(name:'BT-Drop-In-debug', ext:'aar')
+    //implementation 'com.citcon.sdk:CardForm:1.0.1'
+    //implementation(name:'BT-Drop-In-debug', ext:'aar')
+
+    implementation 'com.citcon.sdk:cpay:4.22.06-alpha'
 
     implementation 'org.apache.commons:commons-text:1.6'
-    // wechatpay
-    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.7.9'
-    // alipay
-    //implementation 'com.github.mastergyp:citcon-alipay:0.9.1'
-    implementation 'com.citcon.sdk:alipay:15.8.03'
-    // unionpay
-    //implementation 'com.github.mastergyp:citcon-unionpay:1.0.0'
-    implementation 'com.citcon.sdk:unionpay:3.3.0'
 }

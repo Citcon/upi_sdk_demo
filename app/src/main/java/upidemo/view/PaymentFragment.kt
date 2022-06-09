@@ -132,7 +132,7 @@ class PaymentFragment : Fragment() {
 
         mDemoViewModel.mAccessToken.observe(viewLifecycleOwner) {
             binding.progressBarLoading.visibility = View.GONE
-            if (it.subSequence(0, 4) != "Error") {
+            if (it.subSequence(0, 4) != "Erro") {
                 //mDemoViewModel.getChargeToken(it)
                 when (mPaymentGroup) {
                     "braintree" -> binding.radiogroupPaymentBraintree.visibility = View.VISIBLE

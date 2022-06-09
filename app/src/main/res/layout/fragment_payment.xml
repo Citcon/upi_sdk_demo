@@ -96,7 +96,7 @@
                     android:background="@drawable/rect"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
-                    android:text="kfc_upi_usd"
+                    android:text="sk-development-ff4894740c55c92315b208715a65a501"
                     android:textSize="14sp"
                     tools:ignore="LabelFor" />
 
