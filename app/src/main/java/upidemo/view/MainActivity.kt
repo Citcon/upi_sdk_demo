@@ -25,8 +25,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private val mDemoViewModel: DemoViewModel by lazy {
-        ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application))
-            .get(DemoViewModel::class.java)
+        ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application))[DemoViewModel::class.java]
     }
 
     private val mStartForResult =
@@ -53,16 +52,15 @@ class MainActivity : AppCompatActivity() {
                 }
 
             } else {
-                val message: String
-                if (result.data == null) {
-                    message = "this is merchant demo APP\n\n payment cancelled by user"
+                val message: String = if (result.data == null) {
+                    "this is merchant demo APP\n\n payment cancelled by user"
                 } else {
                     val error: CPayResult =
                         result.data!!.getSerializableExtra(Constant.PAYMENT_RESULT) as CPayResult
-                    message = """this is merchant demo APP
-                        
-                             payment cancelled :
-                             ${error.message} - ${error.code}"""
+                    """this is merchant demo APP
+                                    
+                                         payment cancelled :
+                                         ${error.message} - ${error.code}"""
                 }
                 alertdialog.setMessage(message).create().show()
             }
@@ -89,7 +87,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         mDemoViewModel.mChargeToken.observe(this) {
-            mStartForResult.launch(mDemoViewModel.buildDropInRequest(mDemoViewModel.getPaymentMethod()).getIntent(this))
+            mDemoViewModel.buildDropInRequest(mDemoViewModel.getPaymentMethod()).start(this, mStartForResult)
         }
         mDemoViewModel.mErrorMessage.observe(this) {
             val message = """this is merchant demo APP
@@ -105,7 +103,7 @@ class MainActivity : AppCompatActivity() {
         if(type == CPayMethodType.UNKNOWN || type == CPayMethodType.PAYPAL || type == CPayMethodType.PAY_WITH_VENMO) {
             mDemoViewModel.mAccessToken.value?.let(mDemoViewModel::getChargeToken)
         } else {
-            mStartForResult.launch(mDemoViewModel.buildDropInRequest(type).getIntent(this))
+            mDemoViewModel.buildDropInRequest(type).start(this, mStartForResult)
         }
     }
 

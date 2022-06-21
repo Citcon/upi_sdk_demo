@@ -39,6 +39,7 @@ android {
         dataBinding true
     }
     buildToolsVersion '31.0.0'
+    namespace 'citcon.cpay'
 }
 
 repositories {
@@ -64,7 +65,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.4'
 
-    implementation 'com.citcon.sdk:cpay:4.22.06-alpha'
+    implementation 'com.citcon.sdk:cpay:4.22.06-beta'
 
     implementation 'org.apache.commons:commons-text:1.6'
 }
