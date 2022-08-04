@@ -196,7 +196,7 @@ class DemoViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
     }
-    
+
     private fun demo3DSsetup(): CPayConsumer {
         val billingAddr = city("Chicago")
             .state("IL")
@@ -211,28 +211,6 @@ class DemoViewModel(application: Application) : AndroidViewModel(application) {
             .billingAddress(billingAddr)
             .build()
     }
-
-    /*private fun demoThreeDSecureRequest(): Citcon3DSecureRequest {
-        val billingAddress = CPay3DSecurePostalAddress()
-            .givenName("Jill")
-            .surname("Doe")
-            .phoneNumber("5551234567")
-            .streetAddress("555 Smith St")
-            .extendedAddress("#2")
-            .locality("Chicago")
-            .region("IL")
-            .postalCode("12345")
-            .countryCodeAlpha2("US")
-        val additionalInformation = CPay3DSecureAdditionalInfo()
-            .accountId("account-id")
-        return Citcon3DSecureRequest()
-            .amount("1.00")
-            .versionRequested(Citcon3DSecureRequest.VERSION_2)
-            .email("test@email.com")
-            .mobilePhoneNumber("3125551234")
-            .billingAddress(billingAddress)
-            .additionalInformation(additionalInformation)
-    }*/
 
     fun onPaymentTypeChanged(radioGroup: RadioGroup?, id: Int) {
         radioGroup?.let {
