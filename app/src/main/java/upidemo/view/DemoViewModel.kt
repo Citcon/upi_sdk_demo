@@ -179,7 +179,7 @@ class DemoViewModel(application: Application) : AndroidViewModel(application) {
                     .setAllowDuplicate(true)
                     .paymentMethod(type)
                     .country(Locale(mCountry))
-                    .setTimeout(mTimeout.toLong())
+                    .setExpiry(System.currentTimeMillis()+mTimeout.toLong())
                     .build(CPayENVMode.UAT)
             }
             else -> {
@@ -190,37 +190,14 @@ class DemoViewModel(application: Application) : AndroidViewModel(application) {
                     .consumerID(mConsumerID)
                     .request3DSecureVerification(mIs3DS)
                     //.threeDSecureRequest(demoThreeDSecureRequest())
-                    .consumer(demo3DSsetup()!!)
+                    .consumer(demo3DSsetup())
                     .paymentMethod(type)
                     .build(CPayENVMode.UAT)
             }
         }
     }
-
-    /*private Citcon3DSecureRequest demoThreeDSecureRequest() {
-        CPay3DSecurePostalAddress billingAddress = new CPay3DSecurePostalAddress()
-                .givenName("Jill")
-                .surname("Doe")
-                .phoneNumber("5551234567")
-                .streetAddress("555 Smith St")
-                .extendedAddress("#2")
-                .locality("Chicago")
-                .region("IL")
-                .postalCode("12345")
-                .countryCodeAlpha2("US");
-
-        CPay3DSecureAdditionalInfo additionalInformation = new CPay3DSecureAdditionalInfo()
-                .accountId("account-id");
-
-        return new Citcon3DSecureRequest()
-                .amount("1.00")
-                .versionRequested(Citcon3DSecureRequest.VERSION_2)
-                .email("test@email.com")
-                .mobilePhoneNumber("3125551234")
-                .billingAddress(billingAddress)
-                .additionalInformation(additionalInformation);
-    }*/
-    private fun demo3DSsetup(): CPayConsumer? {
+    
+    private fun demo3DSsetup(): CPayConsumer {
         val billingAddr = city("Chicago")
             .state("IL")
             .street("555 Smith St")
