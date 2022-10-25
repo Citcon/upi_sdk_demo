@@ -8,23 +8,38 @@
     </string-array>
 
     <string-array name="currency_list">
+        <item>CNY</item>
         <item>USD</item>
         <item>CAD</item>
-        <item>CNY</item>
+        <item>GBP</item>
         <item>AUD</item>
-        <item>NZD</item>
         <item>SGD</item>
+        <item>NZD</item>
         <item>KRW</item>
+        <item>PHP</item>
+        <item>IDR</item>
+        <item>MYR</item>
+        <item>THB</item>
+        <item>HKD</item>
+        <item>JPY</item>
     </string-array>
 
     <string-array name="country_list">
+        <item>CN</item>
         <item>US</item>
-        <item>CANADA</item>
-        <item>CHINA</item>
-        <item>AUSTRALIA</item>
-        <item>NEW ZEALAND</item>
-        <item>SINGAPORE</item>
-        <item>KOREAN</item>
+        <item>CA</item>
+        <item>EN</item>
+        <item>AU</item>
+        <item>SG</item>
+        <item>NZ</item>
+        <item>KR</item>
+        <item>PH</item>
+        <item>HK</item>
+        <item>ID</item>
+        <item>MY</item>
+        <item>TH</item>
+        <item>JP</item>
+        <item>Empty</item>
     </string-array>
 
 </resources>
