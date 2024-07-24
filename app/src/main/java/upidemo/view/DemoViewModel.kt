@@ -44,8 +44,8 @@ class DemoViewModel(application: Application) : AndroidViewModel(application) {
     object RetrofitClient {
 
 //        private const val BASE_URL = "https://api.qa01.citconpay.com/v1/";
-        private const val BASE_URL = "https://api-eks.qa01.citconpay.com/v1/";
-//        private const val BASE_URL = "https://api.sandbox.citconpay.com/v1/";
+//        private const val BASE_URL = "https://api-eks.qa01.citconpay.com/v1/";
+        private const val BASE_URL = "https://api.sandbox.citconpay.com/v1/";
 
         private val okHttpClient = OkHttpClient.Builder()
             .callTimeout(30, TimeUnit.SECONDS)
@@ -59,6 +59,9 @@ class DemoViewModel(application: Application) : AndroidViewModel(application) {
             .build()
 
         val apiService: CitconUPIAPIService = retrofit.create(CitconUPIAPIService::class.java)
+
+
+
 
     }
 
@@ -182,8 +185,8 @@ class DemoViewModel(application: Application) : AndroidViewModel(application) {
                     .paymentMethod(type)
                     .country(Locale(mCountry))
                     .setExpiry(System.currentTimeMillis()+mTimeout.toLong())
-//                    .build(CPayENVMode.UAT)
-                    .build(CPayENVMode.QA)
+                    .build(CPayENVMode.UAT)
+//                    .build(CPayENVMode.QA)
 
             }
             else -> {

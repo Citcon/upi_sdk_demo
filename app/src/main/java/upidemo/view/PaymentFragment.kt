@@ -39,6 +39,10 @@ class PaymentFragment : Fragment() {
 
     }
 
+
+
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -89,6 +93,9 @@ class PaymentFragment : Fragment() {
             mDemoViewModel.getAccessToken(binding.authEditText.text.toString())
             mDemoViewModel.setPaymentMethod(R.id.radiogroup_payment_cn,
                 binding.radiogroupPaymentCn.checkedRadioButtonId)
+
+            (activity as MainActivity).binding.fab.visibility = View.VISIBLE
+
         }
 
         binding.buttonNewBraintree.setOnClickListener {
@@ -99,6 +106,9 @@ class PaymentFragment : Fragment() {
             mDemoViewModel.getAccessToken(binding.authEditText.text.toString())
             mDemoViewModel.setPaymentMethod(R.id.radiogroup_payment_braintree,
                 binding.radiogroupPaymentBraintree.checkedRadioButtonId)
+
+            (activity as MainActivity).binding.fab.visibility = View.VISIBLE
+
         }
 //        binding.buttonFirst.setOnClickListener {
 //            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
@@ -143,6 +153,10 @@ class PaymentFragment : Fragment() {
             }
             binding.tvAccessToken.text = it
         }
+
+
+
+
 
         /*mDemoViewModel.mChargeToken.observe(viewLifecycleOwner) {
             if (it.subSequence(0, 4) != "Error") {

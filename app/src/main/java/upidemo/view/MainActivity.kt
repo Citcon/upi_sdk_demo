@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.format.DateFormat
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -16,14 +17,16 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import citcon.cpay.R
 import citcon.cpay.databinding.ActivityMainBinding
 import com.citconpay.sdk.data.model.CPayMethodType
+import com.citconpay.sdk.data.model.CPayRequest
 import com.citconpay.sdk.data.model.CPayResult
+import com.citconpay.sdk.data.repository.CPayENVMode
 import com.citconpay.sdk.utils.Constant
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityMainBinding
+    lateinit var binding: ActivityMainBinding
     private val mDemoViewModel: DemoViewModel by lazy {
         ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application))[DemoViewModel::class.java]
     }
@@ -82,6 +85,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
+        binding.fab.visibility = View.GONE
         binding.fab.setOnClickListener {
             launchDropin(mDemoViewModel.getPaymentMethod())
         }
@@ -97,6 +101,34 @@ class MainActivity : AppCompatActivity() {
                 .setPositiveButton("Quit", null)
                 .setMessage(message).create().show()
         }
+
+
+        /*
+
+        // test alipay
+        var reference = System.currentTimeMillis().toString();
+        var accessToken = "UPI_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM4YTQ2ODgzZWJlODE0YWRmZjdmZTNhYWNlZGRmMTIxZTQ1NmQzYjlkN2I1MTk4ZjcwNjQxNTgzMjVjNjM0MWYiLCJpYXQiOjE2ODU5NTY3NDcsImV4cCI6MTY4NjA0MzE0N30.VZnc3SjXP8X28bblRUoqWS3PUsaZEvGeX91Z9FhzbRA"
+        CPayRequest.UPIOrderBuilder
+            .accessToken(accessToken)
+            .reference(reference)
+            .consumerID("8888")
+            .currency("CNY")
+//            .currency("USD")
+            .amount("10")
+            .callbackURL("https://exampe.com/mobile")
+            .ipnURL("https://exampe.com/ipn")
+            .mobileURL("https://exampe.com/mobile")
+            .cancelURL("https://exampe.com/cancel")
+            .failURL("https://exampe.com/fail")
+            .setAllowDuplicate(true)
+            .paymentMethod(CPayMethodType.ALI)
+            .country(Locale.CHINA)
+//            .country(Locale.US)
+//            .setExpiry(System.currentTimeMillis()+mTimeout.toLong())
+            .build(CPayENVMode.UAT).start(this, mStartForResult);
+//        https://api.sandbox.citconpay.com/v1/
+
+        */
     }
 
     private fun launchDropin(type: CPayMethodType) {
