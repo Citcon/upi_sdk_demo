@@ -70,18 +70,20 @@ dependencies {
     // full module
 //    implementation 'com.citcon.sdk:cpay:4.24.0'
 
+
+
     // partial module
-    implementation('com.citcon.sdk:cpay:4.24.0') {
+    implementation('com.citcon.sdk:cpay:4.24.1') {
         // paypal module
-        exclude group: "com.paypal.android", module: "paypal-native-payments"
-        exclude group: "com.paypal.android", module: "paypal-web-payments"
-        exclude group: "com.paypal.android", module: "fraud-protection"
+//        exclude group: "com.paypal.android", module: "paypal-native-payments"
+//        exclude group: "com.paypal.android", module: "paypal-web-payments"
+//        exclude group: "com.paypal.android", module: "fraud-protection"
 
         // braintree module
-//        exclude group: "com.braintreepayments.api", module: "braintree"
+        exclude group: "com.braintreepayments.api", module: "braintree"
 
         // cashapp module
-        exclude group: "app.cash.paykit", module: "core"
+//        exclude group: "app.cash.paykit", module: "core"
     }
 
 }

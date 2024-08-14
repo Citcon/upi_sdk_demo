@@ -5,6 +5,7 @@
     tools:context="upidemo.view.PaymentFragment">
 
     <data>
+
         <variable
             name="viewModel"
             type="upidemo.view.DemoViewModel" />
@@ -107,12 +108,13 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="0dp"
                     android:layout_weight="1"
-                    android:textSize="14sp"
                     android:background="@drawable/rect"
                     android:entries="@array/country_list"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
-                    android:selectedItemPosition="@={ viewModel.mCountryIndex }" />
+                    android:selectedItemPosition="@={ viewModel.mCountryIndex }"
+                    android:textSize="14sp"
+                    />
 
             </LinearLayout>
 
@@ -243,8 +245,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp"
-                android:visibility="gone"
-                android:text="@string/inquire_ref" />
+                android:text="@string/inquire_ref"
+                android:visibility="gone" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -278,11 +280,11 @@
 
         <RadioGroup
             android:id="@+id/radiogroup_payment_braintree"
-            android:onCheckedChanged="@{viewModel.onPaymentTypeChanged}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="64dp"
             android:checkedButton="@id/radioButton_credit"
+            android:onCheckedChanged="@{viewModel.onPaymentTypeChanged}"
             android:orientation="horizontal"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -308,18 +310,18 @@
                 android:text="@string/venmo" />
         </RadioGroup>
 
-        <RadioGroup
-            android:id="@+id/radiogroup_payment_cn"
-            android:onCheckedChanged="@{viewModel.onPaymentTypeChanged}"
+        <upidemo.view.MyRadioGroup
+            android:id="@+id/radiogroup_payment_upi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="64dp"
             android:checkedButton="@id/radioButton_wechat"
-            android:orientation="horizontal"
-            android:visibility="gone"
+            android:onCheckedChanged="@{viewModel.onPaymentTypeChanged}"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
+
 
             <RadioButton
                 android:id="@+id/radioButton_alipay"
@@ -339,6 +341,24 @@
                 android:layout_height="wrap_content"
                 android:text="@string/upop" />
 
-        </RadioGroup>
+            <RadioButton
+                android:id="@+id/radioButton_upipaypal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/paypal" />
+
+            <RadioButton
+                android:id="@+id/radioButton_upivenmo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/venmo" />
+
+            <RadioButton
+                android:id="@+id/radioButton_cashapp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cashapp" />
+
+        </upidemo.view.MyRadioGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

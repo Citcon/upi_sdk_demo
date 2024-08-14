@@ -132,7 +132,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun launchDropin(type: CPayMethodType) {
-        if(type == CPayMethodType.UNKNOWN || type == CPayMethodType.PAYPAL || type == CPayMethodType.PAY_WITH_VENMO) {
+        if(type == CPayMethodType.UNKNOWN || type == CPayMethodType.PAYPAL || type == CPayMethodType.PAY_WITH_VENMO || mDemoViewModel.isUPI) {
             mDemoViewModel.mAccessToken.value?.let(mDemoViewModel::getChargeToken)
         } else {
             mDemoViewModel.buildDropInRequest(type).start(this, mStartForResult)

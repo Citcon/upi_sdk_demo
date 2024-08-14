@@ -89,10 +89,10 @@ class PaymentFragment : Fragment() {
             mPaymentGroup = "cnpay"
             binding.progressBarLoading.visibility = View.VISIBLE
             binding.radiogroupPaymentBraintree.visibility = View.GONE
-            binding.radiogroupPaymentCn.visibility = View.GONE
+            binding.radiogroupPaymentUpi.visibility = View.GONE
             mDemoViewModel.getAccessToken(binding.authEditText.text.toString())
-            mDemoViewModel.setPaymentMethod(R.id.radiogroup_payment_cn,
-                binding.radiogroupPaymentCn.checkedRadioButtonId)
+            mDemoViewModel.setPaymentMethod(R.id.radiogroup_payment_upi,
+                binding.radiogroupPaymentUpi.checkedRadioButtonId)
 
             (activity as MainActivity).binding.fab.visibility = View.VISIBLE
 
@@ -102,7 +102,7 @@ class PaymentFragment : Fragment() {
             mPaymentGroup = "braintree"
             binding.progressBarLoading.visibility = View.VISIBLE
             binding.radiogroupPaymentBraintree.visibility = View.GONE
-            binding.radiogroupPaymentCn.visibility = View.GONE
+            binding.radiogroupPaymentUpi.visibility = View.GONE
             mDemoViewModel.getAccessToken(binding.authEditText.text.toString())
             mDemoViewModel.setPaymentMethod(R.id.radiogroup_payment_braintree,
                 binding.radiogroupPaymentBraintree.checkedRadioButtonId)
@@ -131,11 +131,14 @@ class PaymentFragment : Fragment() {
 
         }
 
-        binding.radiogroupPaymentCn.setOnCheckedChangeListener { _, checkedId ->
+        binding.radiogroupPaymentUpi.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.radioButton_alipay -> mDemoViewModel.setPaymentMethod(CPayMethodType.ALI)
                 R.id.radioButton_wechat -> mDemoViewModel.setPaymentMethod(CPayMethodType.WECHAT)
                 R.id.radioButton_upop -> mDemoViewModel.setPaymentMethod(CPayMethodType.UNIONPAY)
+                R.id.radioButton_cashapp -> mDemoViewModel.setPaymentMethod(CPayMethodType.CASHAPP)
+                R.id.radioButton_upipaypal -> mDemoViewModel.setPaymentMethod(CPayMethodType.PAYPAL)
+                R.id.radioButton_upivenmo -> mDemoViewModel.setPaymentMethod(CPayMethodType.PAY_WITH_VENMO)
             }
 
         }
@@ -146,7 +149,7 @@ class PaymentFragment : Fragment() {
                 //mDemoViewModel.getChargeToken(it)
                 when (mPaymentGroup) {
                     "braintree" -> binding.radiogroupPaymentBraintree.visibility = View.VISIBLE
-                    "cnpay" -> binding.radiogroupPaymentCn.visibility = View.VISIBLE
+                    "cnpay" -> binding.radiogroupPaymentUpi.visibility = View.VISIBLE
                 }
 
                 binding.tvReference.text = mDemoViewModel.getReference()
