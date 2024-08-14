@@ -23,6 +23,7 @@
     <string name="alipay">AliPay</string>
     <string name="wechat">WechatPay</string>
     <string name="upop">UnionPay</string>
+    <string name="cashapp">CashApp</string>
     <string name="amount">AMOUNT</string>
     <string name="timeout">Timeout</string>
     <string name="auth_key">Auth key</string>
