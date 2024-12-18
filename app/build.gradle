@@ -73,7 +73,7 @@ dependencies {
 
 
     // partial module
-    implementation('com.citcon.sdk:cpay:4.24.1') {
+    implementation('com.citcon.sdk:cpay:4.24.2') {
         // paypal module
 //        exclude group: "com.paypal.android", module: "paypal-native-payments"
 //        exclude group: "com.paypal.android", module: "paypal-web-payments"
